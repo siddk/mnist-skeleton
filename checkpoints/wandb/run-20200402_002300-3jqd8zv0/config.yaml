@@ -1,0 +1,44 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.8.31
+    code_path: code/src/main.py
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.7.7
+bsz:
+  desc: null
+  value: 64
+data_dir:
+  desc: null
+  value: data/
+ff_1:
+  desc: null
+  value: 128
+ff_2:
+  desc: null
+  value: 256
+gpus:
+  desc: null
+  value: 1
+lr:
+  desc: null
+  value: 0.001
+model:
+  desc: null
+  value: feedforward
+opt:
+  desc: null
+  value: adam
+project:
+  desc: null
+  value: mnist-skeleton
+run_name:
+  desc: null
+  value: adam-64-0.001-gpu
+save_dir:
+  desc: null
+  value: checkpoints/

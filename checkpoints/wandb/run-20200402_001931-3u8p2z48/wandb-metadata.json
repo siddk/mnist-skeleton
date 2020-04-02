@@ -1,0 +1,28 @@
+{
+    "root": "/home/sidd/Projects/mnist-skeleton",
+    "program": "src/main.py",
+    "codePath": "src/main.py",
+    "startedAt": "2020-04-02T00:19:31.558424",
+    "host": "lighthouse",
+    "username": "sidd",
+    "executable": "/home/sidd/anaconda3/envs/mnist-skeleton/bin/python",
+    "os": "Linux-4.4.0-131-generic-x86_64-with-debian-stretch-sid",
+    "python": "3.7.7",
+    "gpu": "GeForce GTX 1080 Ti",
+    "gpu_count": 1,
+    "cpu_count": 12,
+    "cuda": "10.1.243",
+    "args": [
+        "--run_name",
+        "adam-64-0.01-gpu",
+        "--gpus",
+        "1"
+    ],
+    "state": "finished",
+    "jobType": null,
+    "mode": "run",
+    "name": "adam-64-0.01-gpu",
+    "project": "mnist-skeleton",
+    "heartbeatAt": "2020-04-02T00:21:11.289517",
+    "exitcode": 0
+}
