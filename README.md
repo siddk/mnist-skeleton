@@ -17,13 +17,14 @@ The repository consists of the following components:
 ## Setup PyCharm Remote Development (to Dev Server --> Only if doing Remote Development)
 
 First, connect to Host (Dev Server) nd specify given port (probably port 22 unless using custom setup like me):
-![Connect to Host](assets/connect.png | width=100)
+<img src="assets/connect.png" width="100">
+
 
 Make sure to set up the deployment path on the remote machine!
-![Set Deployment Path](assets/path.png | width=100)
+<img src="assets/path.png" width="100">
 
 Finally, set up sync commands to sync code (either automatically or on explicit Save action)
-![Set Sync](assets/sync.png | width=100)
+<img src="assets/sync.png" width="100">
 
 ## Start-Up (from Scratch)
 
@@ -69,3 +70,7 @@ python src/main.py --run <RUN ID>
 ```
 
 Look at src/main.py to get a sense of the command line arguments you can fiddle with!
+
+### Weights and Biases Dashboard
+
+Check out the Dashboard: https://app.wandb.ai/skaramcheti/mnist-skeleton
