@@ -25,7 +25,7 @@ class ArgumentParser(Tap):
     gpus: int = 0                         # Number of GPUs to run with
 
     # Model Parameters
-    model: str = 'cnn'                    # Model type to run -- one of < feedforward | cnn >
+    model: str = 'feedforward'            # Model type to run -- one of < feedforward | cnn >
 
     # FeedForward Network Parameters
     ff_1: int = 128                       # Number of neurons in first hidden layer
@@ -40,7 +40,7 @@ class ArgumentParser(Tap):
     # Training Parameters
     bsz: int = 64                         # Batch Size
     opt: str = 'adam'                     # Optimizer to use -- one of < adam | sgd >
-    lr: float = 0.001                     # Learning Rate
+    lr: float = 0.01                      # Learning Rate
 
 
 def main():
@@ -61,10 +61,7 @@ def main():
     nn.train_dataloader()
 
     # Create Trainer
-    trainer = pl.Trainer(default_save_path=args.save_dir, max_epochs=10, logger=wandb, gpus=args.gpus)
-
-    # Watch Histogram of Gradients
-    wandb.experiment.watch(nn, log='gradients', log_freq=100)
+    trainer = pl.Trainer(default_save_path=args.save_dir, max_epochs=10, logger=wandb)
 
     # Fit
     trainer.fit(nn)

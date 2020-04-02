@@ -1,0 +1,56 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.8.31
+    code_path: code/src/main.py
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.7.7
+bsz:
+  desc: null
+  value: 64
+cnn_conv1:
+  desc: null
+  value: 10
+cnn_conv2:
+  desc: null
+  value: 20
+cnn_ff:
+  desc: null
+  value: 50
+data_dir:
+  desc: null
+  value: data/
+ff_1:
+  desc: null
+  value: 128
+ff_2:
+  desc: null
+  value: 256
+gpus:
+  desc: null
+  value: 1
+kernel_size:
+  desc: null
+  value: 5
+lr:
+  desc: null
+  value: 0.001
+model:
+  desc: null
+  value: cnn
+opt:
+  desc: null
+  value: adam
+project:
+  desc: null
+  value: mnist-skeleton
+run_name:
+  desc: null
+  value: cnn-adam-64-0.001-gpu
+save_dir:
+  desc: null
+  value: checkpoints/

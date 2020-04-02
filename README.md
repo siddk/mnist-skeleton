@@ -10,20 +10,20 @@ The repository consists of the following components:
 - `scripts/`: Directory of helpful bash scripts -- for example for downloading data to data directory
 - `src/`: Code directory --> has top-level scripts for running and evaluating, and separate modules for pre-processing and models
 
-- `wandb/`: Path to model checkpoints and other WandB logs
+- `checkpoints/`: Path to model checkpoints and other WandB logs
 
 - `environment.yml`: Serialized Conda Environment for reproducibility
 
 ## Setup PyCharm Remote Development (to Dev Server --> Only if doing Remote Development)
 
 First, connect to Host (Dev Server) nd specify given port (probably port 22 unless using custom setup like me):
-![Connect to Host](assets/connect.png)
+![Connect to Host](assets/connect.png | width=100)
 
 Make sure to set up the deployment path on the remote machine!
-![Set Deployment Path](assets/path.png)
+![Set Deployment Path](assets/path.png | width=100)
 
 Finally, set up sync commands to sync code (either automatically or on explicit Save action)
-![Set Sync](assets/sync.png)
+![Set Sync](assets/sync.png | width=100)
 
 ## Start-Up (from Scratch)
 
@@ -39,17 +39,33 @@ conda activate mnist-skeleton
 
 # Mac OS/Linux (if using GPU, make sure CUDA already installed)
 conda install pytorch torchvision -c pytorch
-pip install pytorch-lightning
 conda install ipython jupyter 
+pip install pytorch-lightning typed-argument-parser
 
 # Go to Weights & Biases and Create New Project <REPO NAME>
 # https://app.wandb.ai/home --> "New"
-# Retrieve wandb hash: <HASH>
 
 # Once created, run the following:
 pip install --upgrade wandb
-wandb login <HASH>                # Creates wandb/ directory
+wandb login <API-KEY>    
 ```
 
 ### Start-Up (Reproducibility)
 
+Create Conda Environment from `environment.yml` and you should be good to go!
+
+```bash
+# Create Conda Environment from environment.yml
+conda env create -f environment.yml
+conda activate mnist-skeleton
+```
+
+### Running Training
+
+After doing the above, run training (w/ logging) with the following command:
+
+```bash
+python src/main.py --run <RUN ID>
+```
+
+Look at src/main.py to get a sense of the command line arguments you can fiddle with!
