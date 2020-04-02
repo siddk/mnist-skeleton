@@ -17,14 +17,17 @@ The repository consists of the following components:
 ## Setup PyCharm Remote Development (to Dev Server --> Only if doing Remote Development)
 
 First, connect to Host (Dev Server) nd specify given port (probably port 22 unless using custom setup like me):
-<img src="assets/connect.png" width="100">
+
+<img src="assets/connect.png" width="500">
 
 
 Make sure to set up the deployment path on the remote machine!
-<img src="assets/path.png" width="100">
+
+<img src="assets/path.png" width="500">
 
 Finally, set up sync commands to sync code (either automatically or on explicit Save action)
-<img src="assets/sync.png" width="100">
+
+<img src="assets/sync.png" width="500">
 
 ## Start-Up (from Scratch)
 
