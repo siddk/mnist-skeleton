@@ -21,7 +21,7 @@ class ArgumentParser(Tap):
     project: str = 'mnist-skeleton'       # Project Name for WandB Logging
     data_dir: str = 'data/'               # Where to download data
     save_dir: str = 'checkpoints/'        # Where to save WandB Artifacts
-    dev: bool = True                      # Boolean if developing (no WandB Logging!)
+    sync: bool = False                    # Boolean if developing (no WandB Logging!)
 
     # GPUs
     gpus: int = 0                         # Number of GPUs to run with
@@ -52,7 +52,7 @@ def main():
     # Create Logger
     if args.run_name is None:
         run_name = datetime.now().strftime('%m/%d-[%H:%M]') + "-%s-%s-%d-%f" % (args.model, args.opt, args.bsz, args.lr)
-    wandb = WandbLogger(name=args.run_name, save_dir=args.save_dir, project=args.project, offline=args.dev)
+    wandb = WandbLogger(name=args.run_name, save_dir=args.save_dir, project=args.project, offline=not args.sync)
 
     # Create MNIST Module
     if args.model == 'feedforward':
