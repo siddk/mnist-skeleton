@@ -5,6 +5,7 @@ Core script for downloading and running MNIST Data, initializing and training va
 training statistics.
 """
 from argparse import Namespace
+from datetime import datetime
 from pytorch_lightning.loggers import WandbLogger
 from tap import Tap
 
@@ -16,10 +17,11 @@ import pytorch_lightning as pl
 
 class ArgumentParser(Tap):
     # Weights & Biases Parameters
-    run_name: str                         # Informative Run-ID for WandB
+    run_name: str = None                  # Informative Run-ID for WandB
     project: str = 'mnist-skeleton'       # Project Name for WandB Logging
     data_dir: str = 'data/'               # Where to download data
     save_dir: str = 'checkpoints/'        # Where to save WandB Artifacts
+    dev: bool = True                      # Boolean if developing (no WandB Logging!)
 
     # GPUs
     gpus: int = 0                         # Number of GPUs to run with
@@ -48,7 +50,9 @@ def main():
     args = Namespace(**ArgumentParser().parse_args().as_dict())
 
     # Create Logger
-    wandb = WandbLogger(name=args.run_name, save_dir=args.save_dir, project=args.project)
+    if args.run_name is None:
+        run_name = datetime.now().strftime('%m/%d-[%H:%M]') + "-%s-%s-%d-%f" % (args.model, args.opt, args.bsz, args.lr)
+    wandb = WandbLogger(name=args.run_name, save_dir=args.save_dir, project=args.project, offline=args.dev)
 
     # Create MNIST Module
     if args.model == 'feedforward':
