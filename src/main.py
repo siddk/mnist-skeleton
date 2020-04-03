@@ -51,8 +51,11 @@ def main():
 
     # Create Logger
     if args.run_name is None:
-        run_name = datetime.now().strftime('%m/%d-[%H:%M]') + "-%s-%s-%d-%f" % (args.model, args.opt, args.bsz, args.lr)
-    wandb = WandbLogger(name=args.run_name, save_dir=args.save_dir, project=args.project, offline=not args.sync)
+        run_name = datetime.now().strftime('%m/%d-[%H:%M]') + "-%s-%s-%d-%.1g" % (args.model, args.opt, args.bsz,
+                                                                                  args.lr)
+    else:
+        run_name = datetime.now().strftime('%m/%d-[%H:%M]') + '-' + args.run_name
+    wandb = WandbLogger(name=run_name, save_dir=args.save_dir, project=args.project, offline=not args.sync)
 
     # Create MNIST Module
     if args.model == 'feedforward':
