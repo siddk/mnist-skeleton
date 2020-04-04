@@ -51,10 +51,10 @@ def main():
 
     # Create Logger
     if args.run_name is None:
-        run_name = datetime.now().strftime('%m/%d-[%H:%M]') + "-%s-%s-%d-%.1g" % (args.model, args.opt, args.bsz,
-                                                                                  args.lr)
+        run_name = "%s-%s-%d-%.1g" % (args.model, args.opt, args.bsz, args.lr) + '+' + \
+                   datetime.now().strftime('%m/%d-[%H:%M]')
     else:
-        run_name = datetime.now().strftime('%m/%d-[%H:%M]') + '-' + args.run_name
+        run_name = args.run_name + '+' + datetime.now().strftime('%m/%d-[%H:%M]')
     wandb = WandbLogger(name=run_name, save_dir=args.save_dir, project=args.project, offline=not args.sync)
 
     # Create MNIST Module
